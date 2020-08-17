@@ -1,0 +1,4 @@
+energy_card_name:
+  card: energy_card
+  key: name
+  value: "Energy Removal"
