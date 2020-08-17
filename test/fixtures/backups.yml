@@ -1,0 +1,4 @@
+pending_backup:
+  status: 0
+  created_at: <%= Time.now.to_s(:db) %>
+  updated_at: <%= Time.now.to_s(:db) %>

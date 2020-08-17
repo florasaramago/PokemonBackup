@@ -3,24 +3,27 @@ class Backup < ApplicationRecord
 
   enum status: %i[ pending processed purged ]
 
-  after_create_commit :process_later
-
   def process
     transaction do
-      Backup::Process.perform_backup self
-      update! status: :processed
+      purge_last_processed_backup
+      perform_backup
+      processed!
     end
   end
 
   def purge
     transaction do
       cards.destroy_all
-      update! status: :purged
+      purged!
     end
   end
 
   private
-    def process_later
-      BackupJob.perform_later self
+    def perform_backup
+      Backup::Process.new(self).perform_backup
+    end
+
+    def purge_last_processed_backup
+      Backup.processed.last&.purge
     end
 end
