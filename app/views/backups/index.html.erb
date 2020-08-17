@@ -5,4 +5,6 @@
 
 <% if @latest_backup %>
   <%= link_to "Purge Backup", backup_path(@latest_backup), method: :delete %>
+
+  <%= link_to "Search Backup", new_search_path %>
 <% end %>

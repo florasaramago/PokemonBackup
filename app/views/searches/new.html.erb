@@ -1,0 +1,9 @@
+<%= form_with url: search_path, method: :get, local: true do |form| %>
+  <%= form.label :key, "Field:" %>
+  <%= form.select :key, options_for_select([["Name", :name], ["Hit point", :hp], ["Rarity", :rarity]]) %>
+
+  <%= form.label :value, "Value:" %>
+  <%= form.text_field :value %>
+
+  <%= form.submit "Search" %>
+<% end %>
