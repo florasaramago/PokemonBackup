@@ -1,10 +1,10 @@
-<%= flash[:notice] %>
-<%= flash[:alert] %>
+<div class="navigation">
+  <%= link_to "Create Backup", backups_path, method: :post,
+      onClick: "document.getElementById('loading').style.setProperty('display', 'block')" %>
 
-<%= link_to "Create Backup", backups_path, method: :post %>
+  <% if @latest_backup %>
+    <%= link_to "Purge Backup", backup_path(@latest_backup), method: :delete %>
 
-<% if @latest_backup %>
-  <%= link_to "Purge Backup", backup_path(@latest_backup), method: :delete %>
-
-  <%= link_to "Search Backup", new_search_path %>
-<% end %>
+    <%= link_to "Search Backup", new_search_path %>
+  <% end %>
+</div>

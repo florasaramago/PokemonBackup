@@ -1,0 +1,33 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    .field {
+      margin: 20px 0;
+
+      label {
+        color: #a35252;
+        font-weight: 900;
+      }
+
+      input[type=text], select {
+        border: 1px solid #ccc!important;
+        border-radius: 4px;
+        padding: 8px;
+      }
+    }
+  }
+
+  .results {
+    text-align: center;
+    font-size: 50px;
+    margin-top: 25px;
+
+    img {
+      margin-bottom: 10px;
+    }
+  }
+}

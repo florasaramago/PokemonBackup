@@ -1,9 +1,17 @@
-<%= form_with url: search_path, method: :get, local: true do |form| %>
-  <%= form.label :key, "Field:" %>
-  <%= form.select :key, options_for_select([["Name", :name], ["Hit point", :hp], ["Rarity", :rarity]]) %>
+<div class="search">
+  <%= form_with url: search_path, method: :get, local: true do |form| %>
+    <div class="field">
+      <%= form.label :key, "Field:" %>
+      <%= form.select :key, options_for_select([["Name", :name], ["Hit point", :hp], ["Rarity", :rarity]]) %>
+    </div>
 
-  <%= form.label :value, "Value:" %>
-  <%= form.text_field :value %>
+    <div class="field">
+      <%= form.label :value, "Value:" %>
+      <%= form.text_field :value %>
+    </div>
 
-  <%= form.submit "Search" %>
-<% end %>
+    <div class="field">
+      <%= form.submit "Search" %>
+    </div>
+  <% end %>
+</div>

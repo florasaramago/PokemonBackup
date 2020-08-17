@@ -1,11 +1,15 @@
-<% if @cards.any? %>
-  <%= "We found #{@cards.size} cards with #{params[:key]} containing '#{params[:value]}'." %>
-  <%= link_to "Back to search", new_search_path %>
+<div class="search">
+  <% if @cards.any? %>
+    <%= "We found #{@cards.size} cards with #{params[:key]} containing '#{params[:value]}'." %>
+    <%= link_to "Back to search", new_search_path %>
 
-  <% @cards.each do |card| %>
-    <%= image_tag card.image_url %>
+    <div class="results">
+      <% @cards.each do |card| %>
+        <%= image_tag card.image_url %>
+      <% end %>
+    </div>
+  <% else %>
+    <%= "No cards found with #{params[:key]} containing '#{params[:value]}'." %>
+    <%= link_to "Back to search", new_search_path %>
   <% end %>
-<% else %>
-  <%= "No cards found with #{params[:key]} containing '#{params[:value]}'." %>
-  <%= link_to "Back to search", new_search_path %>
-<% end %>
+</div>

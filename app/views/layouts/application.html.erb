@@ -10,6 +10,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <h1><%= link_to "Pokemon Backup", root_url %></h1>
+
+    <div id="loading">Loading&#8230;</div>
+
+    <div class="content">
+      <% if flash[:notice] %>
+        <div class="flash-notice"><%= flash[:notice] %></div>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
