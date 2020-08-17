@@ -1,0 +1,8 @@
+<%= flash[:notice] %>
+<%= flash[:alert] %>
+
+<%= link_to "Create Backup", backups_path, method: :post %>
+
+<% if @latest_backup %>
+  <%= link_to "Purge Backup", backup_path(@latest_backup), method: :delete %>
+<% end %>
