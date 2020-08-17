@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_185247) do
+ActiveRecord::Schema.define(version: 2020_08_17_230401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_185247) do
     t.string "key"
     t.string "value"
     t.index ["card_id"], name: "index_card_contents_on_card_id"
+    t.index ["key", "value"], name: "index_card_contents_on_key_and_value"
   end
 
   create_table "cards", force: :cascade do |t|
